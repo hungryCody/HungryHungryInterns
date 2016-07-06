@@ -1,4 +1,4 @@
-package com.HungryApp.android;
+package com.capitalone.hungryapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

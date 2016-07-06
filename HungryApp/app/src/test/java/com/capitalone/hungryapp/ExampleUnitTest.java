@@ -1,4 +1,4 @@
-package com.HungryApp.android;
+package com.capitalone.hungryapp;
 
 import org.junit.Test;
 

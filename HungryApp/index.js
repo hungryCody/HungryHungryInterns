@@ -1,18 +1,29 @@
+function validate(validateTime) {
+    if (document.getElementById("titleDescription").value == "") {
+        alert("Please Describe Food");
+    } else if (document.getElementById("locationList").value == "") {
+        alert("Pretty Please Select a Location.");
+    } else if (document.getElementById("bldgList").value == "") {
+        alert("Ohhh Please ... select a Location.");
+    } else if (document.getElementById("roomNumber").value == "") {
+        alert("Food will go to waste without a room number!!");
+    } else if (document.getElementById("endDate").value == "") {
+        alert("a Time, a TIME...enter a time!!!");
+    } else if (
+        /^([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}\s[0-9]{1,2}\:[0-9]{2})$/.test(validateTime) == false) {
+        alert("remember... mm/dd/yyyy hh:mm");
+    }
+}
+
 function submitNotice(clickedId) {
     var location = document.getElementById("locationList").value;
     var Title = document.getElementById("titleDescription").value;
     var Room = document.getElementById("roomNumber").value;
     var building = document.getElementById("bldgList").value;
     var endTime = document.getElementById("endDate").value;
-    console.log(clickedId);
 
-    console.log(location);
-    console.log(Title);
-    console.log(Room);
-    console.log(building);
-    console.log(endTime);
-
-    createFoodEvent(Title, Room, building, location, endTime);
+    validate(endTime);
+    //    createFoodEvent(Title, Room, building, location, endTime);
 }
 
 function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {

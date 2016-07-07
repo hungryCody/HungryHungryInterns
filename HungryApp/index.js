@@ -34,7 +34,7 @@ function submitNotice(clickedId) {
     if (validate(endTime) == "Validated") {
         createFoodEvent(Title, Room, building, location, endTime);
     }
-
+    alert('Event Created Successfully');
 }
 
 function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {
@@ -61,12 +61,10 @@ function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime
     updates[newPostKey] = postData;
 
     return firebase.database().ref().update(updates);
-
-    Redirect();
 }
 
-function Redirect(){
-  window.location.href="index.html";
+function Redirect() {
+    window.location.href = "index.html";
 }
 
 function configureDropDownLists(ddl1, ddl2) {

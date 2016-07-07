@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
     <!--    Firebase Connection-->
-    <script>
+    <script type="text/javascript">
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyBgD46bF4wBnvuBQxZ_yJoyJUKRzhAj8yU",
@@ -28,9 +28,31 @@
         };
         firebase.initializeApp(config);
 
-        var ref = firebase.database().ref('/Event/').once('value').then(function(snapshot){
-          var Event = snapshot.val();
-          console.log(Event);
+        var ref = firebase.database().ref().on('child_added', function (snapshot) {
+            var Events = snapshot.val();
+
+            var tableRef = document.getElementById("FoodEvents");
+            var newRow = tableRef.insertRow(1);
+            // Insert a cell in the row at index 0
+            var newTitleCell = newRow.insertCell(0);
+            var newTimeCell = newRow.insertCell(1);
+            var newRoomCell = newRow.insertCell(2);
+            var newBuildingCell = newRow.insertCell(3);
+            var newLocationCell = newRow.insertCell(4);
+
+            // Append a text node to the cell
+            var newTitleText = document.createTextNode(Events.Title);
+            var newTimeText = document.createTextNode(Events.EndTime);
+            var newRoomText = document.createTextNode(Events.Room);
+            var newBuildingText = document.createTextNode(Events.Building);
+            var newLocationText = document.createTextNode(Events.Location);
+            newTitleCell.appendChild(newTitleText);
+            newTimeCell.appendChild(newTimeText);
+            newRoomCell.appendChild(newRoomText);
+            newBuildingCell.appendChild(newBuildingText);
+            newLocationCell.appendChild(newLocationText);
+
+            console.log(Events);
         });
     </script>
 </head>
@@ -67,7 +89,7 @@
                     <span>And put something almost as cool here, but a bit longer ...</span>
 -->
                     <div>
-                        <table class="table">
+                        <table id="FoodEvents" class="table">
                             <tr>
                                 <th>Title</th>
                                 <th>Time Ends</th>
@@ -75,7 +97,7 @@
                                 <th>Building</th>
                                 <th>Location</th>
                             </tr>
-                            <tr>
+                            <tr id="dataRows">
                                 <td></td>
                                 <td></td>
                                 <td></td>

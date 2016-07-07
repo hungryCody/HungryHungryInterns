@@ -75,19 +75,11 @@
                                 <div class="dropdown">
                                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Locations
                                         <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li id="Plano" role="presentation">
-                                            <a role="menuitem" href="#">Plano</a>
-                                        </li>
-                                        <li id="Richmond" role="presentation"><a role="menuitem" href="#">Richmond</a></li>
-                                        <li id="McClain" role="presentation"><a role="menuitem" href="#">McClain</a></li>
-                                        <li id="SanFran" role="presentation"><a role="menuitem" href="#">San Francisco</a></li>
-                                        <li id="NewYork" role="presentation"><a role="menuitem" href="#">New York</a></li>
-                                        <li id="Chicago" role="presentation"><a role="menuitem" href="#">Chicago</a></li>
-                                        <li id="Delaware" role="presentation"><a role="menuitem" href="#">Delaware</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li id="noLocation" role="presentation"><a role="menuitem" href="#">Non-Existent</a></li>
-                                    </ul>
+                                    <select id="locationList" onchange="configureDropDownLists(this, document.getElementById('bldgList'))">
+                                        <option value="Plano">Plano</option>
+                                        <option value="McLean">McLean</option>
+                                        <option value="Richmond">Richmond</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -95,19 +87,7 @@
                                 <div class="dropdown">
                                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Buildings
                                         <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li id="bldg1" role="presentation">
-                                            <a role="menuitem" href="#">1</a></li>
-                                        <li id="bldg2" role="presentation"> <a role="menuitem" href="#">2</a></li>
-                                        <li id="bldgTC" role="presentation"><a role="menuitem" href="#">TC</a></li>
-                                        <li id="bldgCC" role="presentation"><a role="menuitem" href="#">CC</a></li>
-                                        <li id="bldg5" role="presentation"><a role="menuitem" href="#">5</a></li>
-                                        <li id="bldg6" role="presentation"> <a role="menuitem" href="#">6</a></li>
-                                        <li id="bldg7" role="presentation"> <a role="menuitem" href="#">7</a>
-                                        </li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li id="noLocation" role="presentation"><a role="menuitem" href="#">Non-Existent</a></li>
-                                    </ul>
+                                    <select id="bldgList"></select>
                                 </div>
                             </div>
 

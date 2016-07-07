@@ -1,3 +1,10 @@
+function loadUnity() {
+    console.log('load unity called');
+    var u = new UnityObject2();
+    u.initPlugin(jQuery("#unityPlayer")[0], "/FlappyJackson/Assets/Scenes/Play.unity");
+
+}
+
 function validate(validateTime) {
     if (document.getElementById("titleDescription").value == "") {
         alert("Please Describe Food");

@@ -14,12 +14,22 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    <script src="index.js" type="text/javascript"></script>
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
+    <!--  jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        <!--
+        var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+        if (document.location.protocol == 'https:')
+            unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+        document.write('<script type="text/javascript" src="' + unityObjectUrl + '">
+    </script>'); -->
+    </script>
+
 </head>
 
 <body>
@@ -79,7 +89,13 @@
 
                         <section class="right-content">
                             <h2>Play Flappy Jackson</h2>
-                            <p>Insert GAME HERE!!</p>
+                            <div onLoad="loadUnity()" id="unityPlayer">
+                                <div class="missing">
+                                    <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+                                        <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+                                    </a>
+                                </div>
+                            </div>
                             <p>It all started with an idea. With a little bit of love and ingenuity, flappy jackson was born!
                                 <br>
                                 <h3><strong>Instructions</strong></h3>

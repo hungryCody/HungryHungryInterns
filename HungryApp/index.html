@@ -28,7 +28,7 @@
         };
         firebase.initializeApp(config);
 
-        var ref = firebase.database().ref().on('child_added', function (snapshot) {
+        var ref = firebase.database().ref().orderByChild("EndDate").on('child_added', function (snapshot) {
             var Events = snapshot.val();
 
             var tableRef = document.getElementById("FoodEvents");
@@ -42,7 +42,7 @@
 
             // Append a text node to the cell
             var newTitleText = document.createTextNode(Events.Title);
-            var newTimeText = document.createTextNode(Events.EndTime);
+            var newTimeText = document.createTextNode(Events.EndDate);
             var newRoomText = document.createTextNode(Events.Room);
             var newBuildingText = document.createTextNode(Events.Building);
             var newLocationText = document.createTextNode(Events.Location);
@@ -68,8 +68,12 @@
                             <h1><a href="#" id="logo">Hungry Hungry Interns</a></h1>
                             <nav id="nav">
                                 <a href="index.html" class="current-page-item">Homepage</a>
+<<<<<<< HEAD
                                 <!--<a href="twocolumn1.html">Two Column #1</a>
                                 <a href="twocolumn2.html">Two Column #2</a>-->
+=======
+                                <a href="leisure.html">Leisure Lobby</a>
+>>>>>>> 17723d6ff6328b0cb4e3217e22284de5168f989f
                                 <a href="addEvent.html">Add Event</a>
                                 <a href="survivalGuide.html">Survival Guide</a>
                             </nav>
@@ -120,27 +124,49 @@
 
                         <section>
                             <h2>why this exists?</h2>
-                            <p>This is <strong>Hungry Hungry Interns</strong>, a a page dedicated to helping starving employees find free food. <a href="http://twitter.com/ajlkn">AJ</a> Too often food goes to waste after various events, and everyone is left wondering, "WTF...I would've ate that!"</p>
-                            <footer class="controls">
-                                <a href="http://html5up.net" class="button">More cool designs ...</a>
-                            </footer>
+                            <p>This is <strong>Hungry Hungry Interns</strong>, a a page dedicated to helping starving employees find <a href="https://www.cs.indiana.edu/~lepike/misc/freefood.html">free food</a>. Too often food goes to waste after various events, and everyone is left wondering, "WTF...I would've ate that!"</p>
+
+
+                            <div class="span4 proj-div" data-toggle="modal" data-target="#GSCCModal">
+                                <footer class="controls">
+                                    <a href="#" class="button">Sign Up for Notifications</a>
+                                </footer>
+                            </div>
+
+                            <div id="GSCCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times; </button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
                     </div>
                     <div class="4u 12u(mobile)">
 
                         <section>
-                            <h2>Who to befriend ASAP</h2>
+                            <h2>Who to befriend?</h2>
                             <ul class="small-image-list">
                                 <li>
-                                    <a href="#"><img src="images/pic2.jpg" alt="" class="left" /></a>
-                                    <h4>Jane Anderson</h4>
-                                    <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis.</p>
+                                    <a href="https://pulse.kdc.capitalone.com/people/TCA049"><img src="images/connorM.png" alt="" class="left" /></a>
+                                    <h4>Connor Marcum</h4>
+                                    <p>Very resourceful TDP, works in the garage. Great with Javascript related question.</p>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="images/pic1.jpg" alt="" class="left" /></a>
-                                    <h4>James Doe</h4>
-                                    <p>Vitae magna eget odio amet mollis justo facilisis amet quis. Sed sagittis consequat.</p>
+                                    <a href="https://pulse.kdc.capitalone.com/people/ZKV667"><img src="images/lauraC.png" alt="Associate Data Engineer" class="left" /></a>
+                                    <h4>Laura Cutler</h4>
+                                    <p>Expert in AWS, currently serves as Plano Intern Site Lead and is able to get shi* done!</p>
                                 </li>
                             </ul>
                         </section>

@@ -1,7 +1,7 @@
 function loadUnity() {
     console.log('load unity called');
     var u = new UnityObject2();
-    u.initPlugin(jQuery("#unityPlayer")[0], "/FlappyJackson/Assets/Scenes/Play.unity");
+    u.initPlugin(jQuery("#unityPlayer")[0], "HungryApp.unity3d");
 
 }
 

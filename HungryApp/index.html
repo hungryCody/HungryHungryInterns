@@ -27,6 +27,11 @@
             storageBucket: "firebase-hungryinterns.appspot.com",
         };
         firebase.initializeApp(config);
+
+        var ref = firebase.database().ref('/Event/').once('value').then(function(snapshot){
+          var Event = snapshot.val();
+          console.log(Event);
+        });
     </script>
 </head>
 
@@ -64,12 +69,14 @@
                     <div>
                         <table class="table">
                             <tr>
+                                <th>Title</th>
                                 <th>Time Ends</th>
                                 <th>Room Number</th>
                                 <th>Building</th>
                                 <th>Location</th>
                             </tr>
                             <tr>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

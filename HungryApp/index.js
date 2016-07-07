@@ -27,7 +27,8 @@ function submitNotice(clickedId) {
     if (validate(endTime) == "Validated") {
         createFoodEvent(Title, Room, building, location, endTime);
     }
-
+    var confirm = document.getElementById('#confirmation');
+    confirm.innerHTML = confirm.innerHTML + 'Extra stuff';
 }
 
 function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {
@@ -54,7 +55,7 @@ function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime
     updates[newPostKey] = postData;
 
     return firebase.database().ref().update(updates);
-    window.location.href = "index.html";
+
 }
 
 function configureDropDownLists(ddl1, ddl2) {

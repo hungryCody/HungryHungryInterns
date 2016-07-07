@@ -61,9 +61,6 @@ function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime
     updates[newPostKey] = postData;
 
     return firebase.database().ref().update(updates);
-
-    Redirect();
-
 }
 
 function Redirect() {

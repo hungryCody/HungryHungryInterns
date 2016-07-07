@@ -1,16 +1,28 @@
 function submitNotice(clickedId) {
-    var location = document.getElementById("location").value;
-    var user = document.getElementById("usr").value;
-    var room = document.getElementById("roomNumber").value;
-    var building = document.getElementById("building").value;
+    var location = document.getElementById("locationList").value;
+    var Title = document.getElementById("titleDescription").value;
+    var Room = document.getElementById("roomNumber").value;
+    var building = document.getElementById("bldgList").value;
+    var endTime = document.getElementById("endDate").value;
     console.log(clickedId);
 
     console.log(location);
-    console.log(user);
-    console.log(room);
+    console.log(Title);
+    console.log(Room);
     console.log(building);
 
+    createFoodEvent(Title, Room, building, location, endTime);
     //    console.log(document.getElementById("location").value);
+}
+
+function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {
+    firebase.database().ref('users/' + userId).set({
+        Title: txtTitle,
+        Room: txtRoom,
+        Building: txtBuilding,
+        Location: txtLocation,
+        EndDate: txtEndTime,
+    });
 }
 
 function configureDropDownLists(ddl1, ddl2) {

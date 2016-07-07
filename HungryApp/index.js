@@ -22,21 +22,22 @@ function configureDropDownLists(ddl1, ddl2) {
     switch (ddl1.value) {
     case 'Richmond':
         ddl2.options.length = 0;
-        for (i = 0; i < colours.length; i++) {
-            createOption(ddl2, Richmond[i], colours[i]);
+        for (i = 0; i < Richmond.length; i++) {
+            createOption(ddl2, Richmond[i], Richmond[i]);
         }
         break;
     case 'McLean':
         ddl2.options.length = 0;
-        for (i = 0; i < shapes.length; i++) {
-            createOption(ddl2, McLean[i], shapes[i]);
+        for (i = 0; i < McLean.length; i++) {
+            createOption(ddl2, McLean[i], McLean[i]);
         }
         break;
     case 'Plano':
         ddl2.options.length = 0;
-        for (i = 0; i < names.length; i++) {
-            createOption(ddl2, Plano[i], names[i]);
+        for (i = 0; i < Plano.length; i++) {
+            createOption(ddl2, Plano[i], Plano[i]);
         }
+        break;
     default:
         ddl2.options.length = 0;
         break;

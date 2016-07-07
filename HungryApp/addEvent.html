@@ -72,23 +72,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="usr">Office Location:</label>
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Locations
-                                        <span class="caret"></span></button>
-                                    <select id="locationList" onchange="configureDropDownLists(this, document.getElementById('bldgList'))">
-                                        <option value="Plano">Plano</option>
-                                        <option value="McLean">McLean</option>
-                                        <option value="Richmond">Richmond</option>
-                                    </select>
-                                </div>
+                                <select id="locationList" onchange="configureDropDownLists(this, document.getElementById('bldgList'))">
+                                    <option value="start"></option>
+                                    <option value="Plano">Plano</option>
+                                    <option value="McLean">McLean</option>
+                                    <option value="Richmond">Richmond</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="usr">Building:</label>
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Buildings
-                                        <span class="caret"></span></button>
-                                    <select id="bldgList"></select>
-                                </div>
+                                <select id="bldgList"></select>
                             </div>
 
                             <div class="form-group">

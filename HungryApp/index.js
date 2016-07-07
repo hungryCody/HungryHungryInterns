@@ -54,7 +54,7 @@ function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime
     updates[newPostKey] = postData;
 
     return firebase.database().ref().update(updates);
-
+    window.location.href = "index.html";
 }
 
 function configureDropDownLists(ddl1, ddl2) {

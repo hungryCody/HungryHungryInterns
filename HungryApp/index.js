@@ -10,19 +10,36 @@ function submitNotice(clickedId) {
     console.log(Title);
     console.log(Room);
     console.log(building);
+    console.log(endTime);
 
     createFoodEvent(Title, Room, building, location, endTime);
-    //    console.log(document.getElementById("location").value);
 }
 
 function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {
-    firebase.database().ref('users/' + userId).set({
+    var config = {
+        apiKey: "AIzaSyBgD46bF4wBnvuBQxZ_yJoyJUKRzhAj8yU",
+        authDomain: "hungryinterns.firebaseapp.com",
+        databaseURL: "https://hungryinterns.firebaseio.com",
+        storageBucket: "firebase-hungryinterns.appspot.com",
+    };
+    firebase.initializeApp(config);
+
+    var postData = {
         Title: txtTitle,
         Room: txtRoom,
         Building: txtBuilding,
         Location: txtLocation,
         EndDate: txtEndTime,
-    });
+    };
+
+    // Get a key for a new Post.
+    var newPostKey = firebase.database().ref().child('posts').push().key;
+
+    var updates = {};
+    updates[newPostKey] = postData;
+
+    return firebase.database().ref().update(updates);
+
 }
 
 function configureDropDownLists(ddl1, ddl2) {

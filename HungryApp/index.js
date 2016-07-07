@@ -23,7 +23,7 @@ function submitNotice(clickedId) {
     var endTime = document.getElementById("endDate").value;
 
     validate(endTime);
-    //    createFoodEvent(Title, Room, building, location, endTime);
+    createFoodEvent(Title, Room, building, location, endTime);
 }
 
 function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {

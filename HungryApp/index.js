@@ -1,7 +1,7 @@
 function loadUnity() {
     console.log('load unity called');
     var u = new UnityObject2();
-    u.initPlugin(jQuery("#unityPlayer")[0], "/FlappyJackson/Assets/Scenes/Play.unity");
+    u.initPlugin(jQuery("#unityPlayer")[0], "HungryApp.unity3d");
 
 }
 
@@ -34,8 +34,7 @@ function submitNotice(clickedId) {
     if (validate(endTime) == "Validated") {
         createFoodEvent(Title, Room, building, location, endTime);
     }
-    var confirm = document.getElementById('#confirmation');
-    confirm.innerHTML = confirm.innerHTML + 'Extra stuff';
+
 }
 
 function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {
@@ -63,6 +62,11 @@ function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime
 
     return firebase.database().ref().update(updates);
 
+    Redirect();
+}
+
+function Redirect(){
+  window.location.href="index.html";
 }
 
 function configureDropDownLists(ddl1, ddl2) {

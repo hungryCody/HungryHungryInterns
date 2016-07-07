@@ -12,6 +12,8 @@ function validate(validateTime) {
     } else if (
         /^([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}\s[0-9]{1,2}\:[0-9]{2})$/.test(validateTime) == false) {
         alert("remember... mm/dd/yyyy hh:mm");
+    } else {
+        return "Validated";
     }
 }
 
@@ -22,8 +24,10 @@ function submitNotice(clickedId) {
     var building = document.getElementById("bldgList").value;
     var endTime = document.getElementById("endDate").value;
 
-    validate(endTime);
-    createFoodEvent(Title, Room, building, location, endTime);
+    if (validate(endTime) == "Validated") {
+        createFoodEvent(Title, Room, building, location, endTime);
+    }
+
 }
 
 function createFoodEvent(txtTitle, txtRoom, txtBuilding, txtLocation, txtEndTime) {

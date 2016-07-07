@@ -10,8 +10,8 @@ function validate(validateTime) {
     } else if (document.getElementById("endDate").value == "") {
         alert("a Time, a TIME...enter a time!!!");
     } else if (
-        /^([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}\s[0-9]{1,2}\:[0-9]{2})$/.test(validateTime) == false) {
-        alert("remember... mm/dd/yyyy hh:mm");
+        /^([0-9]{2}\:[0-9]{2})$/.test(validateTime) == false) {
+        alert("remember... hh:mm");
     } else {
         return "Validated";
     }

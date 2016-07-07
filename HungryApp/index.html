@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Minimaxing by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="index.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <!--    Firebase Connection-->
+    <script type="text/javascript">
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBgD46bF4wBnvuBQxZ_yJoyJUKRzhAj8yU",
+            authDomain: "hungryinterns.firebaseapp.com",
+            databaseURL: "https://hungryinterns.firebaseio.com",
+            storageBucket: "firebase-hungryinterns.appspot.com",
+        };
+        firebase.initializeApp(config);
+
+        var ref = firebase.database().ref().orderByChild("EndDate").on('child_added', function (snapshot) {
+            var Events = snapshot.val();
+
+            var tableRef = document.getElementById("FoodEvents");
+            var newRow = tableRef.insertRow(1);
+            // Insert a cell in the row at index 0
+            var newTitleCell = newRow.insertCell(0);
+            var newTimeCell = newRow.insertCell(1);
+            var newRoomCell = newRow.insertCell(2);
+            var newBuildingCell = newRow.insertCell(3);
+            var newLocationCell = newRow.insertCell(4);
+
+            // Append a text node to the cell
+            var newTitleText = document.createTextNode(Events.Title);
+            var newTimeText = document.createTextNode(Events.EndDate);
+            var newRoomText = document.createTextNode(Events.Room);
+            var newBuildingText = document.createTextNode(Events.Building);
+            var newLocationText = document.createTextNode(Events.Location);
+            newTitleCell.appendChild(newTitleText);
+            newTimeCell.appendChild(newTimeText);
+            newRoomCell.appendChild(newRoomText);
+            newBuildingCell.appendChild(newBuildingText);
+            newLocationCell.appendChild(newLocationText);
+
+            console.log(Events);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <div id="header-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="12u">
+
+                        <header id="header">
+                            <h1><a href="#" id="logo">Hungry Hungry Interns</a></h1>
+                            <nav id="nav">
+                                <a href="index.html" class="current-page-item">Homepage</a>
+                                <a href="leisure.html">Leisure Lobby</a>
+                                <!--<a href="addEvent.html">Add Event</a>-->
+                                <a href="survivalGuide.html">Survival Guide</a>
+                            </nav>
+                        </header>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="banner-wrapper">
+            <div class="container">
+                <a Class="btn btn-primary" href="addEvent.html" style="padding:15px; margin:10px; margin-left:95%;">Add Event</a>
+                <div id="banner">
+
+                    <!--
+                    <h2>Put something cool here!</h2>
+
+                    <span>And put something almost as cool here, but a bit longer ...</span>
+-->
+                    <div>
+                        <table id="FoodEvents" class="table">
+                            <tr>
+                                <th>Title</th>
+                                <th>Time Ends</th>
+                                <th>Room Number</th>
+                                <th>Building</th>
+                                <th>Location</th>
+                            </tr>
+                            <tr id="dataRows">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div id="main">
+            <div class="container">
+                <!--<div class="row main-row">
+                    <div class="4u 12u(mobile)">
+
+                        <section>
+                            <h2>why this exists?</h2>
+                            <p>This is <strong>Hungry Hungry Interns</strong>, a a page dedicated to helping starving employees find <a href="https://www.cs.indiana.edu/~lepike/misc/freefood.html">free food</a>. Too often food goes to waste after various events, and everyone is left wondering, "WTF...I would've ate that!"</p>
+
+
+                            <div class="span4 proj-div" data-toggle="modal" data-target="#GSCCModal">
+                                <footer class="controls">
+                                    <a href="#" class="button">Sign Up for Notifications</a>
+                                </footer>
+                            </div>
+
+                            <div id="GSCCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times; </button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                    <div class="4u 12u(mobile)">
+
+                        <section>
+                            <h2>Who to befriend?</h2>
+                            <ul class="small-image-list">
+                                <li>
+                                    <a href="https://pulse.kdc.capitalone.com/people/TCA049"><img src="images/connorM.png" alt="" class="left" /></a>
+                                    <h4>Connor Marcum</h4>
+                                    <p>Very resourceful TDP, works in the garage. Great with Javascript related question.</p>
+                                </li>
+                                <li>
+                                    <a href="https://pulse.kdc.capitalone.com/people/ZKV667"><img src="images/lauraC.png" alt="Associate Data Engineer" class="left" /></a>
+                                    <h4>Laura Cutler</h4>
+                                    <p>Expert in AWS, currently serves as Plano Intern Site Lead and is able to get shi* done!</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="4u 12u(mobile)">
+
+                        <section>
+                            <h2>How about some links?</h2>
+                            <div>
+                                <div class="row">
+                                    <div class="6u 12u(mobile)">
+                                        <ul class="link-list">
+                                            <li><a href="#">Sed neque nisi consequat</a></li>
+                                            <li><a href="#">Dapibus sed mattis blandit</a></li>
+                                            <li><a href="#">Quis accumsan lorem</a></li>
+                                            <li><a href="#">Suspendisse varius ipsum</a></li>
+                                            <li><a href="#">Eget et amet consequat</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="6u 12u(mobile)">
+                                        <ul class="link-list">
+                                            <li><a href="#">Quis accumsan lorem</a></li>
+                                            <li><a href="#">Sed neque nisi consequat</a></li>
+                                            <li><a href="#">Eget et amet consequat</a></li>
+                                            <li><a href="#">Dapibus sed mattis blandit</a></li>
+                                            <li><a href="#">Vitae magna sed dolore</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+                <div class="row main-row">
+                    <div class="6u 12u(mobile)">
+
+                        <section>
+                            <h2>An assortment of pictures and text</h2>
+                            <p>Duis neque nisi, dapibus sed mattis quis, rutrum et accumsan. Suspendisse nibh. Suspendisse vitae magna eget odio amet mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida lorem ipsum dolor sit amet consequat blandit lorem ipsum dolor sit amet consequat sed dolore.</p>
+                            <ul class="big-image-list">
+                                <li>
+                                    <a href="#"><img src="images/pic3.jpg" alt="" class="left" /></a>
+                                    <h3>Magna Gravida Dolore</h3>
+                                    <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis consectetur in, sollicitudin vitae justo. Cras Maecenas eu arcu purus, phasellus fermentum elit.</p>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/pic4.jpg" alt="" class="left" /></a>
+                                    <h3>Magna Gravida Dolore</h3>
+                                    <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis consectetur in, sollicitudin vitae justo. Cras Maecenas eu arcu purus, phasellus fermentum elit.</p>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/pic5.jpg" alt="" class="left" /></a>
+                                    <h3>Magna Gravida Dolore</h3>
+                                    <p>Varius nibh. Suspendisse vitae magna eget et amet mollis justo facilisis amet quis consectetur in, sollicitudin vitae justo. Cras Maecenas eu arcu purus, phasellus fermentum elit.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="6u 12u(mobile)">
+
+                        <article class="blog-post">
+                            <h2>Just another blog post</h2>
+                            <a class="comments" href="#">33 comments</a>
+                            <a href="#"><img src="images/pic6.jpg" alt="" class="top blog-post-image" /></a>
+                            <h3>Magna Gravida Dolore</h3>
+                            <p>Aenean non massa sapien. In hac habitasse platea dictumst. Maecenas sodales purus et nulla sodales aliquam. Aenean ac porttitor metus. In hac habitasse platea dictumst. Phasellus blandit turpis in leo scelerisque mollis. Nulla venenatis ipsum nec est porta rhoncus. Mauris sodales sed pharetra nisi nec consectetur. Cras elit magna, hendrerit nec consectetur in, sollicitudin vitae justo. Cras amet aliquet Aliquam ligula turpis, feugiat id fermentum malesuada, rutrum eget turpis. Mauris sodales sed pharetra nisi nec consectetur. Cras elit magna, hendrerit nec consectetur in sollicitudin vitae.</p>
+                            <footer class="controls">
+                                <a href="#" class="button">Continue Reading</a>
+                            </footer>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div id="footer-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="8u 12u(mobile)">
+
+                        <section>
+                            <h2>How about a truckload of links?</h2>
+                            <div>
+                                <div class="row">
+                                    <div class="3u 12u(mobile)">
+                                        <ul class="link-list">
+                                            <li><a href="#">Sed neque nisi consequat</a></li>
+                                            <li><a href="#">Dapibus sed mattis blandit</a></li>
+                                            <li><a href="#">Quis accumsan lorem</a></li>
+                                            <li><a href="#">Suspendisse varius ipsum</a></li>
+                                            <li><a href="#">Eget et amet consequat</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="3u 12u(mobile)">
+                                        <ul class="link-list">
+                                            <li><a href="#">Quis accumsan lorem</a></li>
+                                            <li><a href="#">Sed neque nisi consequat</a></li>
+                                            <li><a href="#">Eget et amet consequat</a></li>
+                                            <li><a href="#">Dapibus sed mattis blandit</a></li>
+                                            <li><a href="#">Vitae magna sed dolore</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="3u 12u(mobile)">
+                                        <ul class="link-list">
+                                            <li><a href="#">Sed neque nisi consequat</a></li>
+                                            <li><a href="#">Dapibus sed mattis blandit</a></li>
+                                            <li><a href="#">Quis accumsan lorem</a></li>
+                                            <li><a href="#">Suspendisse varius ipsum</a></li>
+                                            <li><a href="#">Eget et amet consequat</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="3u 12u(mobile)">
+                                        <ul class="link-list">
+                                            <li><a href="#">Quis accumsan lorem</a></li>
+                                            <li><a href="#">Sed neque nisi consequat</a></li>
+                                            <li><a href="#">Eget et amet consequat</a></li>
+                                            <li><a href="#">Dapibus sed mattis blandit</a></li>
+                                            <li><a href="#">Vitae magna sed dolore</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                    <div class="4u 12u(mobile)">
+
+                        <section>
+                            <h2>Something of interest</h2>
+                            <p>Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida lorem ipsum dolor sit amet consequat blandit.</p>
+                            <footer class="controls">
+                                <a href="#" class="button">Oh, please continue ....</a>
+                            </footer>
+                        </section>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="12u">
+
+                        <div id="copyright">
+                            &copy; Untitled. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/skel-viewport.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

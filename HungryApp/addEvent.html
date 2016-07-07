@@ -11,11 +11,14 @@
     <script src="index.js" type="text/javascript"></script>
     <!--  jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Bootstrap Date-Picker Plugin -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
     <script>
         $(document).ready(function () {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
@@ -69,12 +72,45 @@
                             </div>
                             <div class="form-group">
                                 <label for="usr">Office Location:</label>
-                                <input type="text" class="form-control" id="location">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Locations
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                        <li role="presentation">
+                                            <a role="menuitem" href="#">Plano</a>
+                                        </li>
+                                        <li role="presentation"><a role="menuitem" href="#">Richmond</a></li>
+                                        <li role="presentation"><a role="menuitem" href="#">McClain</a></li>
+                                        <li role="presentation"><a role="menuitem" href="#">San Francisco</a></li>
+                                        <li role="presentation"><a role="menuitem" href="#">New York</a></li>
+                                        <li role="presentation"><a role="menuitem" href="#">Chicago</a></li>
+                                        <li role="presentation"><a role="menuitem" href="#">Delaware</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" href="#">Non-Existent</a></li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="usr">Building:</label>
-                                <input type="text" class="form-control" id="building">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Buildings
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                        <li role="presentation">
+                                            <a role="menuitem" href="#">1</a>
+                                            <a role="menuitem" href="#">2</a>
+                                            <a role="menuitem" href="#">TC</a>
+                                            <a role="menuitem" href="#">CC</a>
+                                            <a role="menuitem" href="#">5</a>
+                                            <a role="menuitem" href="#">6</a>
+                                            <a role="menuitem" href="#">7</a>
+                                        </li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" href="#">Non-Existent</a></li>
+                                    </ul>
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="pwd">Room Number:</label>
                                 <input type="text" class="form-control" id="roomNumber">
